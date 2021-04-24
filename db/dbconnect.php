@@ -13,7 +13,7 @@ class database{
             echo "connection error".$conn2->connect_error;
         }
         else {
-            echo "connection with database successful<br>";
+            // echo "connection with database successful<br>";
         }
     
         return $conn;
