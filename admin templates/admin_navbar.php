@@ -23,7 +23,7 @@
         <a class="nav-link" href="../admin pages/post.php">POST</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#">Logout</a>
+        <a class="nav-link" href="../index.php">Logout</a>
     </li>
 
   </div>
