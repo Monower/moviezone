@@ -21,6 +21,15 @@ $conn=$obj->open();
                         <p class="lead"><small><?php echo "posted on: ".$row['created_at']."<br>"."category: ".$row['category']."<br>"."released on: ".$row['year']; ?></small></p>
                         <hr class="my-4">
                         <p><?php echo $row['details']; ?></p>
+                        <form action="edit.php" method="post">
+                            <input type="hidden" name="id" value="<?php echo $row['ID']; ?>">
+                            <input type="submit" value="Edit" class="btn btn-success">
+                        </form>
+                        <form action="../process/delete_process.php" method="post">
+                            <input type="hidden" name="id" value="<?php echo $row['ID']; ?>">
+                            <input type="hidden" name="category" value="<?php echo $row['category']; ?>">
+                            <input type="submit" value="Delete" class="btn btn-danger">
+                        </form>
                     </div>
 
                 <?php

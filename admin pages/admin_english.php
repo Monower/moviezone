@@ -27,6 +27,7 @@ $conn=$obj->open();
                         </form>
                         <form action="../process/delete_process.php" method="post">
                             <input type="hidden" name="id" value="<?php echo $row['ID']; ?>">
+                            <input type="hidden" name="category" value="<?php echo $row['category']; ?>">
                             <input type="submit" value="Delete" class="btn btn-danger">
                         </form>
                     </div>
