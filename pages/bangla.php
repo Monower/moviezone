@@ -3,18 +3,19 @@
 <?php 
 include '../db/dbconnect.php';
 $conn=$obj->open();
-
 ?>
 
+<h1>Latest Post:</h1>
 
-    <?php 
+
+<?php 
     
-        $sql="SELECT * FROM movies where category='Bangla'";
-        $result=$conn->query($sql);
-        if($result==true)
-        {
-            while ($row=$result->fetch_assoc()) {
-                ?>
+    $sql="SELECT * FROM movies where category='Bangla' order by ID DESC";
+    $result=$conn->query($sql);
+    if($result==true)
+    {
+        while ($row=$result->fetch_assoc()) {
+            ?>
                     <div class="jumbotron">
                         <h1 class="display-3"><?php echo $row['name']; ?></h1>
                         <p class="lead"><small><?php echo "posted on: ".$row['created_at']."<br>"."category: ".$row['category']."<br>"."released on: ".$row['year']; ?></small></p>
@@ -25,16 +26,16 @@ $conn=$obj->open();
                 <?php
 
             }
-        }
-        else {
-            echo $conn->error;
-        }
+    }
+    else {
+        echo $conn->error;
+    }
 
 
     
     
     
-    ?>
+?>
 
 
 <?php include '../templates/footer.php' ?>
