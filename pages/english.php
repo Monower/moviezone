@@ -5,28 +5,36 @@ include '../db/dbconnect.php';
 $conn=$obj->open();
 
 ?>
-<div class="center" >
-    <h2>This is English</h2>
+
+
     <?php 
     
-    $sql="SELECT name FROM movies where category='English'";
-    $result=$conn->query($sql);
-    if($result==true)
-    {
-        while ($row=$result->fetch_assoc()) {
-            echo "Name:".$row['name']."<br>";
+        $sql="SELECT * FROM movies where category='English' order by ID DESC";
+        $result=$conn->query($sql);
+        if($result==true)
+        {
+            while ($row=$result->fetch_assoc()) {
+                ?>
+                    <div class="jumbotron">
+                        <h1 class="display-3"><?php echo $row['name']; ?></h1>
+                        <p class="lead"><small><?php echo "posted on: ".$row['created_at']."<br>"."category: ".$row['category']."<br>"."released on: ".$row['year']; ?></small></p>
+                        <hr class="my-4">
+                        <p><?php echo $row['details']; ?></p>
+                    </div>
 
+                <?php
+
+            }
         }
-    }
-    else {
-        echo $conn->error;
-    }
+        else {
+            echo $conn->error;
+        }
 
 
+    
+    
+    
+    ?>
 
-
-
-?>
-</div>
 
 <?php include '../templates/footer.php' ?>

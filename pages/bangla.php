@@ -5,16 +5,24 @@ include '../db/dbconnect.php';
 $conn=$obj->open();
 
 ?>
-<div class="center" >
-    <h2>This is Bangla</h2>
+
+
     <?php 
     
-        $sql="SELECT name FROM movies where category='Bangla'";
+        $sql="SELECT * FROM movies where category='Bangla'";
         $result=$conn->query($sql);
         if($result==true)
         {
             while ($row=$result->fetch_assoc()) {
-                echo "Name:".$row['name']."<br>";
+                ?>
+                    <div class="jumbotron">
+                        <h1 class="display-3"><?php echo $row['name']; ?></h1>
+                        <p class="lead"><small><?php echo "posted on: ".$row['created_at']."<br>"."category: ".$row['category']."<br>"."released on: ".$row['year']; ?></small></p>
+                        <hr class="my-4">
+                        <p><?php echo $row['details']; ?></p>
+                    </div>
+
+                <?php
 
             }
         }
@@ -27,6 +35,6 @@ $conn=$obj->open();
     
     
     ?>
-</div>
+
 
 <?php include '../templates/footer.php' ?>
