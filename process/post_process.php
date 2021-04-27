@@ -23,15 +23,13 @@ VALUES('$name','$category','$year','$text1')";
 $result=$conn->query($sql);
 if ($result==true) {
 /*     echo "data inserted<br>"; */
-?>
-<script>
 
-alert('data insertted');
-
-</script>
-
-<?php
-header('Location: ../admin pages/post.php');
+if ($category=="Bangla") {
+    header('location: ../admin pages/admin_bangla.php');
+}
+elseif ($category=="English") {
+    header('location: ../admin pages/admin_english.php');
+}
 }
 else {
     echo "data not inserted<br>".$conn->error."<br>";
