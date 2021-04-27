@@ -1,13 +1,21 @@
 <?php 
  include '../db/dbconnect.php';
  $conn=$obj->open();
+ function remove_special_char($details)
+{
+    $res= str_replace( array("'")," ", $details );
+
+    return $res;
+}
  $id=$_POST['id'];
  $name=$_POST['mname'];
  $year=$_POST['year'];
  $category=$_POST['cat'];
  $details=$_POST['text'];
 
- $sql = "UPDATE movies SET name='$name', category='$category', year='$year', details='$details' WHERE id='$id'";
+ $details1=remove_special_char($details);
+
+ $sql = "UPDATE movies SET name='$name', category='$category', year='$year', details='$details1' WHERE id='$id'";
 
  if ($conn->query($sql) === TRUE) {
     /* echo "Record updated successfully"; */
