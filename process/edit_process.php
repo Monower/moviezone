@@ -11,7 +11,7 @@
  $name=$_POST['mname'];
  $year=$_POST['year'];
  $category=$_POST['cat'];
- $details=$_POST['text'];
+ $details=$_POST['editor1'];
 
  $details1=remove_special_char($details);
 

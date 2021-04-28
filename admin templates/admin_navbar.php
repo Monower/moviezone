@@ -14,13 +14,13 @@
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Categories</a>
         <div class="dropdown-menu">
-          <a class="dropdown-item" href="../admin pages/admin_bangla.php">Bangla</a>
-          <a class="dropdown-item" href="../admin pages/admin_english.php">English</a>
+          <a class="dropdown-item" href="../admin pages/admin_bangla.php?title=Bangla">Bangla</a>
+          <a class="dropdown-item" href="../admin pages/admin_english.php?title=English">English</a>
         </div>
       </li>
     </ul>
     <li class="nav-item">
-        <a class="nav-link" href="../admin pages/post.php">POST</a>
+        <a class="nav-link" href="../admin pages/post.php?title=Post">POST</a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="../index.php">Logout</a>

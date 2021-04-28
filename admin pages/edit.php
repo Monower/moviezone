@@ -33,7 +33,7 @@ $conn=$obj->open();
                             </div>
                             <div class="form-group">
                                 <label for="exampleTextarea">Details of the movie :</label>
-                                <textarea class="form-control" id="exampleTextarea" rows="3" name="text" ><?php echo $row['details']; ?></textarea>
+                                <textarea class="form-control" id="exampleTextarea" rows="3" name="editor1" ><?php echo $row['details']; ?></textarea>
                             </div>
                             <button type="submit" class="btn btn-primary">Update</button>
                 </fieldset>
