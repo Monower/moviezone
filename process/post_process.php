@@ -10,7 +10,7 @@ function remove_special_char($text)
 $name=$_POST['mname'];
 $year=$_POST['year'];
 $category=$_POST['cat'];
-$text=$_POST['text'];
+$text=$_POST['editor1'];
 
 $text1=remove_special_char($text);
 

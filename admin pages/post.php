@@ -1,5 +1,6 @@
 <?php include '../templates/pages_header.php'; ?>
 <?php include '../admin templates/admin_navbar.php'; ?>
+
 <form action="../process/post_process.php" method="POST" >
   <fieldset>
     <legend>New Post:</legend>
@@ -23,7 +24,7 @@
     </div>
     <div class="form-group">
       <label for="exampleTextarea">Details of the movie :</label>
-      <textarea class="form-control" id="exampleTextarea" rows="3" name="text" ></textarea>
+      <textarea class="form-control" id="exampleTextarea" rows="3" name="editor1" ></textarea>
     </div>
     <button type="submit" class="btn btn-primary">POST</button>
   </fieldset>
