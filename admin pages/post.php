@@ -1,7 +1,7 @@
 <?php include '../templates/pages_header.php'; ?>
 <?php include '../admin templates/admin_navbar.php'; ?>
 
-<form action="../process/post_process.php" method="POST" >
+<form action="../process/post_process.php" method="POST" enctype="multipart/form-data">
   <fieldset>
     <legend>New Post:</legend>
     <p>-----------------</p>
@@ -25,6 +25,10 @@
     <div class="form-group">
       <label for="exampleTextarea">Details of the movie :</label>
       <textarea class="form-control" id="exampleTextarea" rows="3" name="editor1" ></textarea>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputFile">File input</label>
+      <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp" name="image">
     </div>
     <button type="submit" class="btn btn-primary">POST</button>
   </fieldset>
