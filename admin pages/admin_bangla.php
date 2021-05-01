@@ -5,7 +5,7 @@ include '../db/dbconnect.php';
 $conn=$obj->open();
 ?>
 
-<h1>Latest Post:</h1>
+<h1 class="latest" >Latest Post:</h1>
 
 
 <?php 
@@ -18,6 +18,8 @@ $conn=$obj->open();
             ?>
                     <div class="jumbotron">
                         <h1 class="display-3"><?php echo $row['name']; ?></h1>
+                        <!-- image goes here -->
+                        <img src="../image/<?= $row['img_url']; ?>" alt="">
                         <p class="lead"><small><?php echo "posted on: ".$row['created_at']."<br>"."category: ".$row['category']."<br>"."released on: ".$row['year']; ?></small></p>
                         <hr class="my-4">
                         <p><?php echo $row['details']; ?></p>

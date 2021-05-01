@@ -22,37 +22,56 @@ $error=$_FILES['image']['error'];
 
 if ($error===0) {
     $img_ex=pathinfo($img_name, PATHINFO_EXTENSION);
-    $realname=pathinfo($img_name, PATHINFO_FILENAME);
-    echo $realname;
+    /* $realname=pathinfo($img_name, PATHINFO_FILENAME); */
     $img_ex_lc=strtolower($img_ex);
     $allowed_exes=array("jpg","jpeg","png");
     if (in_array($img_ex_lc,$allowed_exes)) {
+        $realname=pathinfo($img_name, PATHINFO_FILENAME);
         $new_img_name=$realname.'.'.$img_ex_lc;
         $img_upload_path='../image/'.$new_img_name;
         move_uploaded_file($tmp_name,$img_upload_path);
 
-        //insert into database
-        $sql=
+        // insert to database
+        $sql="insert into movies (name,category,year,details,img_url)
+        VALUES('$name','$category','$year','$text1','$new_img_name')";
+        $result=$conn->query($sql);
+        if ($result==true) {
+            echo "data inserted<br>";
+
+            if ($category=="Bangla") {
+                header('location: ../admin pages/admin_bangla.php');
+            }
+            elseif ($category=="English") {
+                header('location: ../admin pages/admin_english.php');
+            }
+        }
+        else {
+            echo "data not inserted<br>".$conn->error."<br>";
+        }
+
+
+
     }
     else{
-        echo "cant upload files of this type";
+        $msg="cant upload files of this type";
+        header("location: ../admin pages/post.php?img_error=$msg");
     }
 }
 else{
-    echo "unknown error occurred";
+    $msg="unknown error occured";
+    header("location: ../admin pages/post.php?img_error=$msg");
 }
 
 
-// echo $name, $year, $category, $text;
 
-/* $sql="insert into movies (name,category,year,details)
-VALUES('$name','$category','$year','$text1')";
 
-$result=$conn->query($sql);
-if ($result==true) { */
-/*     echo "data inserted<br>"; */
 
-/* if ($category=="Bangla") {
+
+/* $result=$conn->query($sql);
+if ($result==true) {
+    echo "data inserted<br>";
+
+if ($category=="Bangla") {
     header('location: ../admin pages/admin_bangla.php');
 }
 elseif ($category=="English") {

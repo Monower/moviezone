@@ -28,6 +28,13 @@
     </div>
     <div class="form-group">
       <label for="exampleInputFile">File input</label>
+      <?php 
+        //echo $_GET['img_error'];
+        if (isset($_GET['img_error'])) {
+          echo $_GET['img_error'];
+        } 
+        
+      ?>
       <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp" name="image">
     </div>
     <button type="submit" class="btn btn-primary">POST</button>
