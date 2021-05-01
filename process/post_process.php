@@ -30,6 +30,9 @@ if ($error===0) {
         $new_img_name=$realname.'.'.$img_ex_lc;
         $img_upload_path='../image/'.$new_img_name;
         move_uploaded_file($tmp_name,$img_upload_path);
+
+        //insert into database
+        $sql=
     }
     else{
         echo "cant upload files of this type";
